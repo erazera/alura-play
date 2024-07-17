@@ -1,0 +1,8 @@
+.docker/mysql/dbdata/
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Environment files
+.env

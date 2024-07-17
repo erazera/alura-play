@@ -1,0 +1,8 @@
+{
+    "autoload": {
+           "psr-4": {
+               "Alura\\Mvc\\": "src/"
+           },
+           "files": ["src/Repository/connection.php"]
+       }   
+}

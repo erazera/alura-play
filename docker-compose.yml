@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+    aluraplay:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        networks:
+            - aluraplay-network
+    # nginx
+    nginx:
+        container_name: aluraplay-nginx
+        image: nginx:alpine
+        restart: unless-stopped
+        ports:
+            - "80:80"
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/:/etc/nginx/conf.d/
+        networks:
+            - aluraplay-network
+    mysql:
+        container_name: aluraplay-mysql
+        image: mysql:8.0
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: aluraplay
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_PASSWORD: password
+            MYSQL_USER: user
+        volumes:
+            - ./.docker/mysql/dbdata:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        networks:
+            - aluraplay-network
+networks:
+    aluraplay-network:
+        driver: bridge
+
