@@ -36,3 +36,8 @@
         <?php endif; ?>
 
     </header>
+    <?= $this->section('content'); ?>
+
+</body>
+
+</html>

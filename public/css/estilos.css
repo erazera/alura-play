@@ -24,13 +24,17 @@ body {
 
 /* ESTILOS DO HEADER */
 
+body > header {
+    height: 80px;
+}
+
 .cabecalho {
     background-color: white;
     position: fixed;
     top: 0;
     height: 80px;
     width: 100%;
-    padding: 0 25px;
+    padding: 0 25px;    
     z-index: 2;
 }
 
@@ -100,6 +104,11 @@ body {
     border-left: none;
     padding: 15px 15px;
     cursor: pointer;
+}
+
+.formulario__titulo.erro {
+    color: red;
+    padding-top: 6rem;
 }
 
 @media(min-width: 834px) {
